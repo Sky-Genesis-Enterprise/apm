@@ -1,0 +1,52 @@
+{
+  "name": "aether-packet-manager",
+  "version": "0.1.0",
+  "description": "Aether Packet Manager - CLI tool for managing Aether Framework packages",
+  "module": "dist/index.js",
+  "type": "module",
+  "private": false,
+  "bin": {
+    "apm": "./bin/apm.js"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node",
+    "start": "bun run ./dist/index.js",
+    "dev": "bun run ./src/index.ts",
+    "clean": "rimraf dist",
+    "prepublishOnly": "bun run clean && bun run build",
+    "postinstall": "chmod +x ./bin/apm.js"
+  },
+  "keywords": [
+    "aether",
+    "cli",
+    "package-manager"
+  ],
+  "author": "Aether Framework Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "axios": "^1.8.4",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.5.2",
+    "rimraf": "^6.0.1",
+    "simple-git": "^3.27.0"
+  }
+}
